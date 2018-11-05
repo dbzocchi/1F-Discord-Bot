@@ -1,0 +1,75 @@
+<?php
+include 'helpers/post_to_discord.php';
+include 'helpers/channel_info.php';
+include 'helpers/string_manager.php';
+
+set_time_limit(0);
+ignore_user_abort(true);
+ini_set('max_execution_time', 0);
+
+$url = "https://1fichier.com/dir/TVGUMGQk";
+$ch = curl_init();
+$timeout = 5;
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+$html = curl_exec($ch);
+curl_close($ch);
+
+$dom = new DOMDocument();
+@$dom->loadHTML($html);
+
+$myint = 0;
+
+foreach ($dom->getElementsByTagName('a') as $link) {
+
+     //returns href title
+    $Hyperlink_Title = $link->getAttribute('title');
+
+    //check results for file type NSP
+    if (strpos($Hyperlink_Title, 'nsp') !== false) {
+
+        //returns Download Link
+        $DownloadLink = $link->getAttribute('href');
+
+        //returns first letter of the filename
+        $Case = getFirstLetter($Hyperlink_Title);
+
+        //decides what bot to send to (this method was used to sort out/seperate results alphabetically
+        $Webhook = setChannel_Webhook($Case);
+
+        //bot message title, again this is based on the result
+        $Channel_Title = setChannel_Title($Case);
+
+
+        //cleans up title
+        $Title = getTitle($Hyperlink_Title);
+
+       //cleans up title ID of an NSP
+        $TitleID = getTitleID($Hyperlink_Title);
+
+        $myint++;
+
+        // Displays Results
+        echo "<br />\n";
+        echo $myint . "<br />\n";
+        echo '  Title:   ' . $Title . "<br />\n";
+        echo '  TitleID:   ' . $TitleID . "<br />\n";
+
+
+        //encodes the url **DCMA reasons
+        $Encoded = base64_encode($DownloadLink);
+        $Date = date("Y.m.d");
+
+        //organises the message somewhat (yes i know its dirty coding)
+        $Discord_Title = $Channel_Title . $Date;
+        $Discord_Hyperlink = Hyperlink($Encoded);
+        $Discord_MSG_PT1 = markdown_Title($Title) . ' - ' . $TitleID;
+        $Discord_MSG_PT2 = $Discord_MSG_PT1 . "\n" . $Discord_Hyperlink . "\n" . '```**As always thank Duex for the release**```' . "\n" . "\n" . ' ____________________________';
+
+        //posts to discord
+        postToDiscord($Webhook, $Discord_Title, $Discord_MSG_PT2);
+
+    }
+
+}
