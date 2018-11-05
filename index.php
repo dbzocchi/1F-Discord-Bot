@@ -36,9 +36,14 @@ foreach ($dom->getElementsByTagName('a') as $link) {
         $Case = getFirstLetter($Hyperlink_Title);
 
         //decides what bot to send to (this method was used to sort out/seperate results alphabetically
+
+        //if you are using this for one bot just replace below with
+        //$Webhook = 'mywebhookurl';
         $Webhook = setChannel_Webhook($Case);
 
         //bot message title, again this is based on the result
+        //if you dont care about the title then replace below with
+        //$channel_Title = 'My Title';
         $Channel_Title = setChannel_Title($Case);
 
 

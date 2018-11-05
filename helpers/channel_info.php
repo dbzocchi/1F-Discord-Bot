@@ -3,7 +3,10 @@
 
 function setChannel_Webhook($case)
 {
+
     //region WEBHOOKS
+
+    // These are you bots/webhook address, i obviously have one for each letter
     $webhook_nspbase_09 = 'https://discordapp.com/api/webhooks/508760046696398858/MRC61ByDknBzbc7FTk2sxR8UcbfgWfERKkuTS4MH4b-dNBrk8tg6EFWj3pwdfWhB3xEv';
     $webhook_nspbase_a = 'https://discordapp.com/api/webhooks/508771785060122648/l245p9CPCJnGgQDpcQYGk4GfIK8Ff0ALQ6Vub_ZwQ6MT1yPWXOdWFJAHWy-G9ecm1beE';
     $webhook_nspbase_b = 'https://discordapp.com/api/webhooks/508771957827829781/qAm141NMdYSZLlKrGaD2Eciw__l65FVje3quSR36jVD5XGzBjFiWZ08TsLpDWkT27TmH';
@@ -32,12 +35,6 @@ function setChannel_Webhook($case)
     $webhook_nspbase_y = 'https://discordapp.com/api/webhooks/508774205190569994/-3e4JL4jVhEIlqi7BNFUyCphkENTvzyNylemuViFXay7wURCJzaWbiHCXpHjoKrTx8iW';
     $webhook_nspbase_z = 'https://discordapp.com/api/webhooks/508774254284898315/pVbJDBnUqHgd94AC8Hv-x0sPcLexlJU_efVv-UEPQPgSWgnpoNebE67McfO4nsiq0T7U';
     //endregion
-
-
-
-
-
-
 
     switch ($case) {
         case "A":
@@ -160,7 +157,9 @@ function setChannel_Webhook($case)
 
 function setChannel_Title($case)
 {
-    //region WEBHOOKS
+    //region titles
+
+    // These are your titles, i obviously have one for each letter
     $webhook_nspbase_09 = 'NSP Base #0-9    -   ';
     $webhook_nspbase_a = 'NSP Base #A    -   ';
     $webhook_nspbase_b = 'NSP Base #B    -   ';
