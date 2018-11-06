@@ -1,11 +1,12 @@
 # 1F Discord Bot
 
-A simple script for listing https://1fichier.com files from a shared folder and sending them encoded to a discord bot
+A simple script for listing https://1fichier.com files from a shared folder and sending them encoded with base64 to a discord bot with a self-decoding hyperlink
+
 
 
 
 How it works
-
+-
 
 1> edit script to tell it what shared folder to look at
 2> script will list and edit each file by formatting the file name and url correctly
@@ -18,7 +19,20 @@ Once the hyperlink is clicked
 2> provide you with a button with will download the file with a DIRECT LINK
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 F.A.Q
+--
 
 Q. why is the decoder page just one button
 -
