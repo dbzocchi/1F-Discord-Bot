@@ -38,7 +38,7 @@ function markdown_Title($title){
 }
 
 function Hyperlink($Encoded){
-    return '[' . $Encoded . ']' . '(' .  'http://hostfile.xyz/discord/bots/Decoder.php/' . $Encoded . ')';
+    return '[' . $Encoded . ']' . '(' .  'http://example.com/Decoder.php/' . $Encoded . ')';
 }
 
 function make_directurl($link, $title){
