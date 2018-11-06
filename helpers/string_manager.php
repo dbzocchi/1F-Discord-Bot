@@ -37,8 +37,9 @@ function markdown_Title($title){
    return '__**' . $title . '**__';
 }
 
+// edit the url to where your decoder file is
 function Hyperlink($Encoded){
-    return '[' . $Encoded . ']' . '(' .  'http://example.com/decoder.php/' . $Encoded . ')';
+    return '[' . $Encoded . ']' . '(' .  'http://example.com/bot/1f/decoder.php/' . $Encoded . ')';
 }
 
 function make_directurl($link, $title){

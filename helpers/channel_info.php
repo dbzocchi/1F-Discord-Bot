@@ -33,12 +33,6 @@ function setChannel_Webhook($case)
     $webhook_nspbase_z = 'https://discordapp.com/api/webhooks/508774254284898315/pVbJDBnUqHgd94AC8Hv-x0sPcLexlJU_efVv-UEPQPgSWgnpoNebE67McfO4nsiq0T7U';
     //endregion
 
-
-
-
-
-
-
     switch ($case) {
         case "A":
             return $webhook_nspbase_a;
@@ -153,9 +147,6 @@ function setChannel_Webhook($case)
             break;
 
     }
-
-
-
 }
 
 function setChannel_Title($case)
@@ -190,12 +181,6 @@ function setChannel_Title($case)
     $webhook_nspbase_z = 'NSP Base #Z    -   ';
     //endregion
 
-
-
-
-
-
-
     switch ($case) {
         case "A":
             return $webhook_nspbase_a;
@@ -310,7 +295,4 @@ function setChannel_Title($case)
             break;
 
     }
-
-
-
 }

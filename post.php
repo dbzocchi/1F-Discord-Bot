@@ -46,7 +46,6 @@ foreach ($dom->getElementsByTagName('a') as $link) {
         //$channel_Title = 'My Title';
         $Channel_Title = setChannel_Title($Case);
 
-
         //cleans up title
         $Title = getTitle($Hyperlink_Title);
 
@@ -56,23 +55,18 @@ foreach ($dom->getElementsByTagName('a') as $link) {
         $myint++;
 
         $filelink = rmDownload($Hyperlink_Title);
+        $DirectURL = make_directurl($DownloadLink, $Hyperlink_Title);
+
+        //encodes the url **DCMA reasons
+        $Encoded = base64_encode($DirectURL);
+        $Date = date("Y.m.d");
 
         // Displays Results
         echo "<br />\n";
         echo $myint . "<br />\n";
         echo '  Title:   ' . $Title . "<br />\n";
         echo '  TitleID:   ' . $TitleID . "<br />\n";
-
-
-        $DirectURL = make_directurl($DownloadLink, $Hyperlink_Title);
-
         echo $DirectURL. "<br />\n";
-
-        //encodes the url **DCMA reasons
-        $Encoded = base64_encode($DirectURL);
-        $Date = date("Y.m.d");
-
-        echo $Encoded. "<br />\n";
 
         //organises the message somewhat (yes i know its dirty coding)
         $Discord_Title = $Channel_Title . $Date;
@@ -81,7 +75,7 @@ foreach ($dom->getElementsByTagName('a') as $link) {
         $Discord_MSG_PT2 = $Discord_MSG_PT1 . "\n" . $Discord_Hyperlink . "\n" . '```**As always thank Duex for the release**```' . "\n" . "\n" . ' ____________________________';
 
         //posts to discord
-        $postToDiscord($Webhook, $Discord_Title, $Discord_MSG_PT2);
+        postToDiscord($Webhook, $Discord_Title, $Discord_MSG_PT2);
 
     }
 
