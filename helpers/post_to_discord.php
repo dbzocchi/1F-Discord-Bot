@@ -11,7 +11,9 @@ function postToDiscord($Channel, $Title, $Message)
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     return curl_exec($curl);
 
-
+    echo "<br />\n";
+    echo 'POSTED '  .   $Title   ."<br />\n";
+    echo "<br />\n";
 }
 
 

@@ -55,6 +55,8 @@ foreach ($dom->getElementsByTagName('a') as $link) {
 
         $myint++;
 
+        $filelink = rmDownload($Hyperlink_Title);
+
         // Displays Results
         echo "<br />\n";
         echo $myint . "<br />\n";
@@ -62,9 +64,15 @@ foreach ($dom->getElementsByTagName('a') as $link) {
         echo '  TitleID:   ' . $TitleID . "<br />\n";
 
 
+        $DirectURL = make_directurl($DownloadLink, $Hyperlink_Title);
+
+        echo $DirectURL. "<br />\n";
+
         //encodes the url **DCMA reasons
-        $Encoded = base64_encode($DownloadLink);
+        $Encoded = base64_encode($DirectURL);
         $Date = date("Y.m.d");
+
+        echo $Encoded. "<br />\n";
 
         //organises the message somewhat (yes i know its dirty coding)
         $Discord_Title = $Channel_Title . $Date;
@@ -73,7 +81,7 @@ foreach ($dom->getElementsByTagName('a') as $link) {
         $Discord_MSG_PT2 = $Discord_MSG_PT1 . "\n" . $Discord_Hyperlink . "\n" . '```**As always thank Duex for the release**```' . "\n" . "\n" . ' ____________________________';
 
         //posts to discord
-        postToDiscord($Webhook, $Discord_Title, $Discord_MSG_PT2);
+      //  postToDiscord($Webhook, $Discord_Title, $Discord_MSG_PT2);
 
     }
 

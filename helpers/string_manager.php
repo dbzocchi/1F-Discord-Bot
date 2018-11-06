@@ -32,12 +32,15 @@ function getTitle($title){
     return substr(rmNSP($title), 0, -22);
 }
 
-//formats title with markdown
+
 function markdown_Title($title){
    return '__**' . $title . '**__';
 }
 
-//this is where your decoder will be
 function Hyperlink($Encoded){
-    return '[' . $Encoded . ']' . '(' .  'http://example.com/discord/bots/decoder.php/' . $Encoded . ')';
+    return '[' . $Encoded . ']' . '(' .  'http://hostfile.xyz/discord/bots/Decoder.php/' . $Encoded . ')';
+}
+
+function make_directurl($link, $title){
+    return $link    .   '/'    .    urlencode(rmDownload($title));
 }
