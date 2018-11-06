@@ -81,7 +81,7 @@ foreach ($dom->getElementsByTagName('a') as $link) {
         $Discord_MSG_PT2 = $Discord_MSG_PT1 . "\n" . $Discord_Hyperlink . "\n" . '```**As always thank Duex for the release**```' . "\n" . "\n" . ' ____________________________';
 
         //posts to discord
-      //  postToDiscord($Webhook, $Discord_Title, $Discord_MSG_PT2);
+        $postToDiscord($Webhook, $Discord_Title, $Discord_MSG_PT2);
 
     }
 
