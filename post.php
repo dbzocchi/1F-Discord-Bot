@@ -59,6 +59,7 @@ foreach ($dom->getElementsByTagName('a') as $link) {
 
         //encodes the url **DCMA reasons
         $Encoded = base64_encode($DirectURL);
+
         $Date = date("Y.m.d");
 
         // Displays Results
@@ -70,7 +71,7 @@ foreach ($dom->getElementsByTagName('a') as $link) {
 
         //organises the message somewhat (yes i know its dirty coding)
         $Discord_Title = $Channel_Title . $Date;
-        $Discord_Hyperlink = $DirectURL;
+        $Discord_Hyperlink = Hyperlink($Encoded);
         $Discord_MSG_PT1 = markdown_Title($Title) . ' - ' . $TitleID;
         $Discord_MSG_PT2 = $Discord_MSG_PT1 . "\n" . $Discord_Hyperlink . "\n" . '```**As always thank Duex for the release**```' . "\n" . "\n" . ' ____________________________';
 
