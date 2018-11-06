@@ -9,13 +9,17 @@ How it works
 -
 
 1> edit script to tell it what shared folder to look at
+
 2> script will list and edit each file by formatting the file name and url correctly
+
 3> it will the encode the url with base64, this is for DCMA purposes so no one knows what it is
+
 4> it will then post it to a discord webhook with an active hyperlink
 
 Once the hyperlink is clicked
 
 1> take you back to the script and decode the url 
+
 2> provide you with a button with will download the file with a DIRECT LINK
 
 
