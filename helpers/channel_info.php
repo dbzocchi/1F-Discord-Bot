@@ -160,7 +160,7 @@ function setChannel_Webhook($case)
 
 function setChannel_Title($case)
 {
-    //region WEBHOOKS
+    //region TITLES
     $webhook_nspbase_09 = 'NSP Base #0-9    -   ';
     $webhook_nspbase_a = 'NSP Base #A    -   ';
     $webhook_nspbase_b = 'NSP Base #B    -   ';
